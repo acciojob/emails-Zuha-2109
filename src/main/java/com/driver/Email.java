@@ -11,10 +11,12 @@ public class Email {
     }
 
     public String getEmailId() {
+
         return emailId;
     }
 
     public String getPassword() {
+
         return password;
     }
 
@@ -25,5 +27,49 @@ public class Email {
         // 3. It contains at least one lowercase letter
         // 4. It contains at least one digit
         // 5. It contains at least one special character. Any character apart from alphabets and digits is a special character
+
+        if(this.password.equals(oldPassword)){
+            if(newPassword.length()>=8 && UpperCase(newPassword) && LowerCase(newPassword) && OneNumber(newPassword) && SpecialCharacter(newPassword)){
+                this.password = newPassword;
+            }
+        }
+
+
+    }
+    public boolean UpperCase(String s){
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)>='A' && s.charAt(i)<='Z'){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean LowerCase(String s){
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)>='a' && s.charAt(i)<='z'){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean OneNumber(String s){
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)>='0' && s.charAt(i)<='9'){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean SpecialCharacter(String s){
+
+        boolean result = false;
+        for(int i=0;i<s.length();i++){
+            //check the character not to be letter,digit or space
+            if(!Character.isDigit(s.charAt(i)) && !Character.isLetter(s.charAt(i))){
+                result =  true;
+                break;
+            }
+        }
+        return result;
     }
 }
