@@ -30,45 +30,58 @@ public class Email {
         // 4. It contains at least one digit
         // 5. It contains at least one special character. Any character apart from alphabets and digits is a special character
 
-        if(this.password.equals(oldPassword)){
-            if(newPassword.length()>=8 && UpperCase(newPassword) && LowerCase(newPassword) && OneNumber(newPassword) && SpecialCharacter(newPassword)){
-                this.password = newPassword;
+        if(this.password.equals(oldPassword))
+        {
+            if(newPassword.length()>=8 && UpperCase(newPassword) && LowerCase(newPassword) && OneNumber(newPassword) && SpecialCharacter(newPassword))
+            {
+                this.password=newPassword;
             }
         }
-
-
     }
-    public boolean UpperCase(String s){
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i)>='A' && s.charAt(i)<='Z'){
+    public boolean UpperCase(String str)
+    {
+        for(int i=0;i<str.length();i++)
+        {
+            if(str.charAt(i)>='A' && str.charAt(i)<='Z')
+            {
                 return true;
             }
         }
         return false;
     }
-    public boolean LowerCase(String s){
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i)>='a' && s.charAt(i)<='z'){
+    public boolean LowerCase(String str)
+    {
+        for(int i=0;i<str.length();i++)
+        {
+            if(str.charAt(i)>='a' && str.charAt(i)<='z')
+            {
                 return true;
             }
         }
         return false;
     }
-    public boolean OneNumber(String s){
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i)>='0' && s.charAt(i)<='9'){
+    public boolean OneNumber(String str)
+    {
+        for(int i=0;i<str.length();i++)
+        {
+            if(str.charAt(i)>='0' && str.charAt(i)<='9')
+            {
                 return true;
             }
         }
         return false;
     }
-    public boolean SpecialCharacter(String s){
 
-        boolean flag = false;
-        for(int i=0;i<s.length();i++){
-            //check the character not to be letter,digit or space
-            if(!Character.isDigit(s.charAt(i)) && !Character.isLetter(s.charAt(i))){
-                flag =  true;
+    public boolean SpecialCharacter(String str)
+    {
+        boolean flag=false;
+        for (int i = 0; i < str.length(); i++) {
+
+            // Checking the character for not being a
+            // letter,digit or space
+            if (!Character.isDigit(str.charAt(i)) && !Character.isLetter(str.charAt(i)))
+            {
+                flag=true;
                 break;
             }
         }
