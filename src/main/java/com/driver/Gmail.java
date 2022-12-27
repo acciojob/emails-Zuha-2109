@@ -53,22 +53,23 @@ public class Gmail extends Email {
         if(inbox.size()==inboxCapacity){
             trash.add(inbox.removeFirst());
         }
-        inbox.add(new mail(date, sender, message));
+        inbox.add(new mail(date,sender,message));
     }
 
     public void deleteMail(String message){
         // Each message is distinct
         // If the given message is found in any mail in the inbox, move the mail to trash, else do nothing
 
-        Iterator<mail> It = inbox.iterator();
+        Iterator<mail> it = inbox.iterator();
 
-        while (It.hasNext()){
+        while(it.hasNext()){
 
-            mail obj = It.next();
+            mail obj = it.next();
 
-            if(obj.getMessage().equals(message)){
+            if(obj.getMessage().equals(message))
+            {
                 trash.add(obj);
-                It.remove();
+                it.remove();
                 break;
             }
         }
@@ -94,20 +95,17 @@ public class Gmail extends Email {
 
     public int findMailsBetweenDates(Date start, Date end){
         //find number of mails in the inbox which are received between given dates
-        Iterator<mail> Iter = inbox.iterator();
+        Iterator<mail> it = inbox.iterator();
 
         int counting = 0;
-        while(Iter.hasNext()){
-            mail obj=Iter.next();
+        while(it.hasNext()){
+            mail obj=it.next();
 
 //            if(obj.date.after(start) && obj.date.before(end)){
                 if(obj.date.getTime()>=start.getTime() && obj.date.getTime()<=end.getTime()) {
 
                     counting++;
                 }
-
-
-
         }
         return counting;
         //It is guaranteed that start date <= end date
