@@ -60,13 +60,15 @@ public class Gmail extends Email {
         // Each message is distinct
         // If the given message is found in any mail in the inbox, move the mail to trash, else do nothing
 
-        Iterator<mail> Iter = inbox.iterator();
+        Iterator<mail> It = inbox.iterator();
 
-        while (Iter.hasNext()){
-            mail obj = Iter.next();
+        while (It.hasNext()){
+
+            mail obj = It.next();
+
             if(obj.getMessage().equals(message)){
                 trash.add(obj);
-                Iter.remove();
+                It.remove();
                 break;
             }
         }

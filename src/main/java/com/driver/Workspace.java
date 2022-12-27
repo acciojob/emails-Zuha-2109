@@ -13,17 +13,17 @@ class Sorting implements Comparator<Meeting>{
     @Override
 
     //sort meetings based on finish timings
-    public int compare(Meeting m1, Meeting m2)
+    public int compare(Meeting o1, Meeting o2)
     {
 
        // m1 start < m2 start
-        if(m1.getEndTime().isBefore(m2.getEndTime())){
+        if(o1.getEndTime().isBefore(o2.getEndTime())){
             return -1;
 
         }
 
         //m1 end > m2.end
-        else if(m2.getEndTime().isAfter(m2.getEndTime())){
+        else if(o1.getEndTime().isAfter(o2.getEndTime())){
             return 1;
 
         }
