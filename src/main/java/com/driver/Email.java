@@ -1,6 +1,7 @@
 package com.driver;
 
 import java.util.regex.*;
+
 public class Email {
 
     private String emailId;
@@ -63,14 +64,14 @@ public class Email {
     }
     public boolean SpecialCharacter(String s){
 
-        boolean result = false;
+        boolean flag = false;
         for(int i=0;i<s.length();i++){
             //check the character not to be letter,digit or space
             if(!Character.isDigit(s.charAt(i)) && !Character.isLetter(s.charAt(i))){
-                result =  true;
+                flag =  true;
                 break;
             }
         }
-        return result;
+        return flag;
     }
 }
